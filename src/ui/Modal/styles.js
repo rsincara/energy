@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+import modalBackground from '../../static/modal-background.jpg';
+
 const appearAnimation = keyframes`
   from {
     filter: opacity(0);
@@ -25,10 +27,12 @@ export const Overlay = styled.div`
   transition: .5s;
   animation-name: ${appearAnimation};
   animation-duration: .5s;
+  
+  z-index: 999;
 `;
 
 export const ModalWrapper = styled.div`
-  position: absolute;
+  position: fixed;
 
   left: 0;
   top: 0;
@@ -43,13 +47,24 @@ export const ModalWrapper = styled.div`
   transition: .5s;
   animation-name: ${appearAnimation};
   animation-duration: .5s;
+  
+  z-index: 999;
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  background-image: url(${modalBackground});
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  
+  filter: contrast(.3) brightness(1.3);
 `;
 
 export const Modal = styled.div`
-  padding: 16px 32px;
-  
-  background: #ffffff;
+  position: relative;
+  padding: 40px 32px 30px;
 
-  color: #0d0d0d;
+  color: #000000;
 `;
 

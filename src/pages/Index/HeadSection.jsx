@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import ContactUsModal from "../../components/ContactUsModal";
 
 import * as SC from "./styles";
 
 const HeadSection = () => {
+    const [isModalOpen, setIsModalOpen] = useState(true);
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <SC.Section marginBottom={167}>
+            {isModalOpen && (
+                <ContactUsModal onClose={handleCloseModal}/>
+            )}
             <SC.HeadSectionContent>
                 <SC.MontageInfo>
                     Профессиональный монтаж <br />
@@ -24,7 +35,7 @@ const HeadSection = () => {
                 </SC.Age>
 
                 <SC.ContactUsButtonWrapper>
-                    <SC.ContactUsButton>
+                    <SC.ContactUsButton onClick={() => setIsModalOpen(true)}>
                         Связаться с нами
                     </SC.ContactUsButton>
                 </SC.ContactUsButtonWrapper>

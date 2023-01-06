@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import * as SC from './styles';
+import Portal from "../Portal";
 
 const Modal = ({
     children,
@@ -15,18 +16,24 @@ const Modal = ({
 
         setTimeout(() => {
             onClose();
+            document.body.style.overflowY = 'auto';
         }, 500);
     };
 
+    useEffect(() => {
+        document.body.style.overflowY = 'hidden';
+    }, []);
+
     return (
-        <>
+        <Portal>
             <SC.Overlay ref={overlayRef} onClick={handleClose} />
             <SC.ModalWrapper ref={modalWrapperRef}>
+                <SC.Background />
                 <SC.Modal>
                     {children}
                 </SC.Modal>
             </SC.ModalWrapper>
-        </>
+        </Portal>
     );
 };
 
