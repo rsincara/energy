@@ -1,13 +1,53 @@
 import React from 'react';
 
-import * as SC from './styles';
+import MainLayout from "../../ui/Layouts/MainLayout";
 
-const Sertificates = () => {
+import cerificatePlaceholder from '../../static/certificate.png';
+
+import * as SC from './styles';
+import Certificate from "../../components/Certificate";
+
+const certificates = [
+    {
+        url: cerificatePlaceholder,
+        alt: 'certificate',
+        description: 'За то-то и то-то'
+    },
+    {
+        url: cerificatePlaceholder,
+        alt: 'certificate',
+        description: 'За сё-то и чё-то'
+    },
+    {
+        url: cerificatePlaceholder,
+        alt: 'certificate',
+        description: 'За сё-то и чё-то'
+    },
+    {
+        url: cerificatePlaceholder,
+        alt: 'certificate',
+        description: 'За сё-то и чё-то'
+    },
+];
+
+const Certificates = () => {
     return (
-        <div>
-            contacts
-        </div>
+        <MainLayout>
+            <SC.Title>
+                Сертификаты
+            </SC.Title>
+
+            <SC.Certificates>
+                {certificates.map((certificate) => (
+                    <Certificate
+                        imgUrl={certificate.url}
+                        description={certificate.description}
+                        alt={certificate.alt}
+                    />
+                ))}
+            </SC.Certificates>
+        </MainLayout>
     );
 };
 
-export default Sertificates;
+export default Certificates;

@@ -8,8 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Oswald, serif;
   }
   
-  svg {
+  svg, img {
     width: 100%;
-    height: 100%;
   }
 `
