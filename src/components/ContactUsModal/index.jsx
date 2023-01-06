@@ -17,7 +17,7 @@ const ContactUsModal = ({
   onClose,
 }) => {
 
-  const [isChecked, setIsChecked] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = (event) => {
     console.log(event)

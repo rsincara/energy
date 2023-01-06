@@ -10,7 +10,7 @@ import EmailIcon from "../../ui/Icons/Email";
 import PointerIcon from "../../ui/Icons/Pointer";
 import {RoutesPath} from "../../constants/routesPath";
 
-const MainLayout = () => {
+const Header = () => {
     return (
         <SC.Header>
             <SC.Logos>
@@ -88,4 +88,4 @@ const MainLayout = () => {
     );
 };
 
-export default MainLayout;
+export default Header;

@@ -5,7 +5,7 @@ import ContactUsModal from "../../components/ContactUsModal";
 import * as SC from "./styles";
 
 const HeadSection = () => {
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleCloseModal = () => {
         setIsModalOpen(false);
