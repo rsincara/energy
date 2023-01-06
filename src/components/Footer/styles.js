@@ -106,3 +106,8 @@ export const GeneralLink = styled(NavLink)`
   text-decoration: none;
   color: #777777;
 `;
+
+export const SocialLink = styled.a`
+  text-decoration: none;
+  color: #777777;
+`;

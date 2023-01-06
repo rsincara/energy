@@ -19,27 +19,27 @@ const Social = () => {
                     <SC.GeneralLinksIconWrapper>
                         <ArrowIcon />
                     </SC.GeneralLinksIconWrapper>
-                    <SC.GeneralLink to={"https://vk.com"}>
+                    <SC.SocialLink href={"https://vk.com"} target="_blank">
                         VK.com
-                    </SC.GeneralLink>
+                    </SC.SocialLink>
                 </SC.ItemWrapper>
 
                 <SC.ItemWrapper>
                     <SC.GeneralLinksIconWrapper>
                         <ArrowIcon />
                     </SC.GeneralLinksIconWrapper>
-                    <SC.GeneralLink to={"https://instagram.com"}>
+                    <SC.SocialLink href={"https://instagram.com"} target="_blank">
                         Instagram
-                    </SC.GeneralLink>
+                    </SC.SocialLink>
                 </SC.ItemWrapper>
 
                 <SC.ItemWrapper>
                     <SC.GeneralLinksIconWrapper>
                         <ArrowIcon />
                     </SC.GeneralLinksIconWrapper>
-                    <SC.GeneralLink to={"https://twitter.com"}>
+                    <SC.SocialLink href={"https://twitter.com"} target="_blank">
                         Twitter
-                    </SC.GeneralLink>
+                    </SC.SocialLink>
                 </SC.ItemWrapper>
             </SC.Items>
         </SC.Block>
