@@ -50,7 +50,7 @@ export const ItemWrapper = styled.div`
   align-items: center;
 
   &:not(:last-child) {
-    margin-right: 124px;
+    margin-right: 120px;
   }
 `;
 
