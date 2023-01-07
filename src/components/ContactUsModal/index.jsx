@@ -16,7 +16,6 @@ import Button from "../../ui/Button";
 const ContactUsModal = ({
   onClose,
 }) => {
-
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = (event) => {

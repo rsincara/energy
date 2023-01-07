@@ -17,6 +17,8 @@ export const Info = styled.div`
 
 export const LeftBlock = styled.div`
   width: 548px;
+  
+  margin-right: 145px;
 `;
 
 export const ContactPhotoWrapper = styled.div`
@@ -80,6 +82,9 @@ export const ContactUsButton = styled.button`
 `;
 
 export const RightBlock = styled.div`
+  width: 967px;
+  height: 803px;
   
+  overflow: hidden;
 `;
 

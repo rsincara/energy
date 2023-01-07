@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import MainLayout from "../../ui/Layouts/MainLayout";
 
 import contacts from '../../static/contacts.png';
+import map from '../../static/map.png';
 
 import * as SC from './styles';
 import ContactUsModal from "../../components/ContactUsModal";
@@ -66,7 +67,7 @@ const Contacts = () => {
               </SC.Text>
             </SC.LeftBlock>
             <SC.RightBlock>
-
+              <img src={map} alt="map" />
             </SC.RightBlock>
           </SC.Info>
         </MainLayout>
