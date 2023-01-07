@@ -4,6 +4,7 @@ import  * as SC from './styles';
 
 import objectPlaceholder from '../../static/object-placeholder.png';
 import Slider from "../../ui/Slider";
+import {RoutesPath} from "../../constants/routesPath";
 
 const settings = {
   dots: false,
@@ -18,16 +19,19 @@ const Object = () => {
   return (
       <SC.ObjectWrapper>
         <SC.Object>
-
           <SC.SliderWrapper>
             <Slider options={settings}>
-              <img src={objectPlaceholder} alt="object placeholder" />
-              <img src={objectPlaceholder} alt="object placeholder" />
+              <SC.ImageWrapper>
+                <SC.Image src={objectPlaceholder} alt="object placeholder" />
+              </SC.ImageWrapper>
+              <SC.ImageWrapper>
+                <SC.Image src={objectPlaceholder} alt="object placeholder" />
+              </SC.ImageWrapper>
             </Slider>
           </SC.SliderWrapper>
-          <SC.Title>
+          <SC.Link to={RoutesPath.object.replace(':id', '1')}>
             Реконструкция электроснабжения СНТ «Любитель 1»
-          </SC.Title>
+          </SC.Link>
           <SC.City>
             г. Челябинск
           </SC.City>

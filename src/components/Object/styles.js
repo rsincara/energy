@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
 
 export const ObjectWrapper = styled.div`
@@ -16,9 +17,19 @@ export const SliderWrapper = styled.div`
   width: 555px;
   
   margin-bottom: 55px;
+  
+  overflow: hidden;
 `;
 
-export const Title = styled.div`
+export const ImageWrapper = styled.div`
+  
+`;
+
+export const Image = styled.img`
+  object-fit: none;
+`;
+
+export const Link = styled(NavLink)`
   display: flex;
   
   align-items: center;
@@ -30,6 +41,7 @@ export const Title = styled.div`
   
   background: #DDDDDD;
   
+  text-decoration: none;
   font-size: 22px;
   line-height: 27px;
   color: #000000;
