@@ -7,6 +7,9 @@ export const Slider = styled(SlickSlider)`
   
   .slick-next {
     right: 8px !important;
+    
+    height: 100%;
+    
     z-index: 1;
     
     &:before {
@@ -16,6 +19,9 @@ export const Slider = styled(SlickSlider)`
 
   .slick-prev {
     left: 8px !important;
+    
+    height: 100%;
+    
     z-index: 1;
 
     &:before {

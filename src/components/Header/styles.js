@@ -18,7 +18,9 @@ export const Logos = styled.div`
   align-items: center;
 `;
 
-export const EnergyLogoWrapper = styled.div`
+export const EnergyLogoWrapper = styled(NavLink)`
+  display: block;
+  
   width: 480px;
   height: 36px;
   margin-right: 99px;

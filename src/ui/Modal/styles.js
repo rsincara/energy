@@ -49,6 +49,12 @@ export const ModalWrapper = styled.div`
   animation-duration: .5s;
   
   z-index: 999;
+
+  @media screen and (max-height: 1080px) {
+      height: 100vh;
+      
+      overflow: auto;
+  }
 `;
 
 export const Background = styled.div`
@@ -66,5 +72,11 @@ export const Modal = styled.div`
   padding: 40px 32px 30px;
 
   color: #000000;
+
+  @media screen and (max-height: 1080px) {
+    height: 100vh;
+
+    overflow: auto;
+  }
 `;
 

@@ -16,12 +16,15 @@ const Modal = ({
 
         setTimeout(() => {
             onClose();
-            document.body.style.overflowY = 'auto';
         }, 500);
     };
 
     useEffect(() => {
         document.body.style.overflowY = 'hidden';
+
+        return () => {
+            document.body.style.overflowY = 'auto';
+        }
     }, []);
 
     return (

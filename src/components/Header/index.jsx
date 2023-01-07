@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <SC.Header>
             <SC.Logos>
-                <SC.EnergyLogoWrapper>
+                <SC.EnergyLogoWrapper to={RoutesPath.index}>
                     <img src={EnergyLogo} alt="energy logo" />
                 </SC.EnergyLogoWrapper>
                 <SC.ESasLogoWrapper>

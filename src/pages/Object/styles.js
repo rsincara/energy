@@ -25,7 +25,7 @@ export const Object = styled.div`
   border-left: 1px solid #DEDEDE;
   border-right: 1px solid #DEDEDE;
 
-  padding: 0 2px 32px;
+  padding: 0 2px;
   overflow: hidden;
 `;
 
@@ -64,4 +64,11 @@ export const TextInfoList = styled.ul`
 
 export const TextInfoListItem = styled.li`
   padding-left: 12px;
+`;
+
+export const PageIngo = styled.div`
+  margin-bottom: 44px;
+  
+  font-size: 22px;
+  text-align: center;
 `;

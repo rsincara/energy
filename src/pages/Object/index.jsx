@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import MainLayout from "../../ui/Layouts/MainLayout";
 import Slider from "../../ui/Slider";
@@ -16,7 +16,12 @@ const settings = {
   height: '550px',
 };
 
+const imagesCount = 2;
+
 const Objects = () => {
+
+    const [currentPage, setCurrentPage] = useState(1);
+
     return (
         <MainLayout>
             <SC.Title>
@@ -27,14 +32,19 @@ const Objects = () => {
             <SC.ObjectWrapper>
               <SC.Object>
                 <SC.SliderWrapper>
-                  <Slider options={settings}>
+                  <Slider options={{
+                    ...settings,
+                    afterChange: (index) => setCurrentPage(index + 1)
+                  }}>
                     <img src={objectPlaceholder} alt="object placeholder" />
                     <img src={objectPlaceholder} alt="object placeholder" />
                   </Slider>
                 </SC.SliderWrapper>
+                <SC.PageIngo>
+                  {`${currentPage}/${imagesCount}`}
+                </SC.PageIngo>
+                <SC.Divider />
               </SC.Object>
-
-              <SC.Divider />
             </SC.ObjectWrapper>
 
             <SC.Info>
