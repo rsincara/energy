@@ -8,10 +8,18 @@ export const Slider = styled(SlickSlider)`
   .slick-next {
     right: 8px !important;
     z-index: 1;
+    
+    &:before {
+      color: ${({ darkTheme }) => darkTheme ? '#000000' : '#ffffff'} !important;
+    }
   }
 
   .slick-prev {
     left: 8px !important;
     z-index: 1;
+
+    &:before {
+      color: ${({ darkTheme }) => darkTheme ? '#000000' : '#ffffff'} !important;
+    }
   }
 `;

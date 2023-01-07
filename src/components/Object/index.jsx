@@ -2,7 +2,7 @@ import React from 'react';
 
 import  * as SC from './styles';
 
-import objectPlaceholder from '../../static/object-placeholder.png';
+import objectPlaceholder from '../../static/object-placeholder-little.png';
 import Slider from "../../ui/Slider";
 import {RoutesPath} from "../../constants/routesPath";
 

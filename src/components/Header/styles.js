@@ -9,6 +9,8 @@ export const Header = styled.header`
   padding: 36px 31px 26px 55px;
 
   color: #000000;
+
+  box-shadow: -3px 9px 8px 0 rgba(34, 60, 80, 0.2);
 `;
 
 export const Logos = styled.div`
