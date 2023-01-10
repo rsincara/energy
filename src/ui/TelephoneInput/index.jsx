@@ -5,6 +5,8 @@ import * as SC from './styles';
 const Input = ({
   label,
   icon: Icon,
+  name,
+  onChange,
   placeholder,
 }) => {
   return (
@@ -17,7 +19,7 @@ const Input = ({
           <SC.IconWrapper>
             <Icon color="#000000"/>
           </SC.IconWrapper>
-          <SC.Input placeholder={placeholder} format="+7 (###) #### ###" />
+          <SC.Input name={name} onChange={onChange} placeholder={placeholder} format="+7 (###) #### ###" />
         </SC.InputWrapper>
       </SC.Wrapper>
   );

@@ -37,4 +37,10 @@ export const Input = styled.input`
   border-radius: 10px;
   
   padding-left: 40px;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;

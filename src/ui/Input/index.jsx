@@ -6,6 +6,10 @@ const Input = ({
   label,
   icon: Icon,
   placeholder,
+  name,
+  onChange,
+  maxLength,
+  max,
   type = 'text'
 }) => {
   return (
@@ -18,7 +22,7 @@ const Input = ({
           <SC.IconWrapper>
             <Icon color="#000000"/>
           </SC.IconWrapper>
-          <SC.Input type={type} placeholder={placeholder}/>
+          <SC.Input maxLength={maxLength} max={max} name={name} onChange={onChange} type={type} placeholder={placeholder}/>
         </SC.InputWrapper>
       </SC.Wrapper>
   );

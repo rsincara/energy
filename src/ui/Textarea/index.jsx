@@ -6,6 +6,8 @@ import * as SC from "./styles";
 const Textarea = ({
   label,
   placeholder,
+  name,
+  onChange,
 }) => {
   return (
       <SC.Wrapper>
@@ -13,7 +15,7 @@ const Textarea = ({
           {label}
         </SC.Label>
 
-        <SC.Textarea placeholder={placeholder} />
+        <SC.Textarea name={name} onChange={onChange} placeholder={placeholder} />
       </SC.Wrapper>
   );
 };
