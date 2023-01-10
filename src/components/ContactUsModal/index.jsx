@@ -39,8 +39,7 @@ const ContactUsModal = ({
   };
 
   const handleCheckboxChange = (event) => {
-    console.log(event)
-    setIsChecked(event.target.checked)
+    setIsChecked(event.target.checked);
   };
 
   const handleFormSubmit = (e) => {
