@@ -1,4 +1,4 @@
-const SERVER_ADDRESS = 'http://80.249.144.118:1079';
+const SERVER_ADDRESS = 'http://37.228.116.242:1079';
 
 export const fetchApi = (endpoint, {body, method, ...options} = {}) => {
   return fetch(`${SERVER_ADDRESS}/${endpoint}`, {
