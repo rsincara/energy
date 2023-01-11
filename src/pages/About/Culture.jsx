@@ -1,24 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import * as SC from './styles';
 import CultureItem from "../../components/CultureItem";
+import {fetchApi} from "../../services/fetch";
+import Loader from "../../ui/Loader";
 
 const Culture = () => {
+
+  const [events, setEvents] = useState(null);
+
+  useEffect(() => {
+    fetchApi('cultural_events').then((eventsRes) => {
+      setEvents(eventsRes);
+    })
+  }, []);
+
   return (
       <SC.Section>
         <SC.SectionTitle>
           Корпоративная культура
         </SC.SectionTitle>
 
-        <SC.CultureWrapper>
-          <CultureItem />
-          <CultureItem />
-          <CultureItem />
-          <CultureItem />
-          <CultureItem />
-          <CultureItem />
-        </SC.CultureWrapper>
+        {!events && (
+            <Loader />
+        )}
 
+        {events && (
+            <SC.CultureWrapper>
+              {events.map((event) => (
+                  <CultureItem event={event} />
+              ))}
+            </SC.CultureWrapper>
+        )}
       </SC.Section>
   );
 };

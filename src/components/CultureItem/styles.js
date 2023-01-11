@@ -5,6 +5,8 @@ export const CultureItem = styled.div`
   
   width: 535px;
   height: 320px;
+  
+  overflow: hidden;
 `;
 
 export const Info = styled.div`
@@ -12,6 +14,7 @@ export const Info = styled.div`
   
   bottom: 18px;
   left: 0;
+  right: 0;
   
   font-size: 18px;
   text-align: center;

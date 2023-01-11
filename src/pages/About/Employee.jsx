@@ -4,22 +4,20 @@ import employee from '../../static/our-employee-placeholder.png';
 
 import * as SC from './styles';
 
-const Employee = () => {
+const Employee = ({ employee }) => {
   return (
       <SC.Employee>
         <SC.EmployeePhotoWrapper>
-          <img src={employee} alt="our employee" />
+          <img src={employee['photo_url']} alt="our employee" />
         </SC.EmployeePhotoWrapper>
         <SC.EmployeeName>
-          Иванов Иван Иванович
+          {employee['full_name']}
         </SC.EmployeeName>
         <SC.EmployeePosition>
           Главный инженер
         </SC.EmployeePosition>
         <SC.EmployeeDescription>
-          Является сотрудником компании 15 лет, руководил многими строительствами,
-          проектировал и создавал еще много всего, короче красавчик  и герой всей
-          нашей компании
+          {employee.speciality}
         </SC.EmployeeDescription>
       </SC.Employee>
   );

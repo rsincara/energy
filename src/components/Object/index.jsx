@@ -15,25 +15,28 @@ const settings = {
   height: '245px',
 };
 
-const Object = () => {
+const Object = ({ object }) => {
   return (
       <SC.ObjectWrapper>
         <SC.Object>
           <SC.SliderWrapper>
-            <Slider options={settings}>
+            {/*<Slider options={settings}>*/}
+            {/*  <SC.ImageWrapper>*/}
+            {/*    <SC.Image src={objectPlaceholder} alt="object placeholder" />*/}
+            {/*  </SC.ImageWrapper>*/}
+            {/*  <SC.ImageWrapper>*/}
+            {/*    <SC.Image src={objectPlaceholder} alt="object placeholder" />*/}
+            {/*  </SC.ImageWrapper>*/}
+            {/*</Slider>*/}
               <SC.ImageWrapper>
-                <SC.Image src={objectPlaceholder} alt="object placeholder" />
+                <SC.Image src={object['image_url']} alt="object placeholder" />
               </SC.ImageWrapper>
-              <SC.ImageWrapper>
-                <SC.Image src={objectPlaceholder} alt="object placeholder" />
-              </SC.ImageWrapper>
-            </Slider>
           </SC.SliderWrapper>
           <SC.Link to={RoutesPath.object.replace(':id', '1')}>
-            Реконструкция электроснабжения СНТ «Любитель 1»
+            {object.name}
           </SC.Link>
           <SC.City>
-            г. Челябинск
+            {object.city || 'Не указано'}
           </SC.City>
         </SC.Object>
         <SC.Divider />

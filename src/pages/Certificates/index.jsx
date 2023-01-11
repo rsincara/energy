@@ -1,51 +1,40 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import MainLayout from "../../ui/Layouts/MainLayout";
 
-import cerificatePlaceholder from '../../static/certificate.png';
-
 import * as SC from './styles';
 import Certificate from "../../components/Certificate";
-
-const certificates = [
-    {
-        url: cerificatePlaceholder,
-        alt: 'certificate',
-        description: 'За то-то и то-то'
-    },
-    {
-        url: cerificatePlaceholder,
-        alt: 'certificate',
-        description: 'За сё-то и чё-то'
-    },
-    {
-        url: cerificatePlaceholder,
-        alt: 'certificate',
-        description: 'За сё-то и чё-то'
-    },
-    {
-        url: cerificatePlaceholder,
-        alt: 'certificate',
-        description: 'За сё-то и чё-то'
-    },
-];
+import {fetchApi} from "../../services/fetch";
+import Loader from "../../ui/Loader";
 
 const Certificates = () => {
+    const [certificates, setCertificates] = useState(null);
+
+    useEffect(() => {
+        fetchApi('certificates').then((certificatesRes) => {
+          setCertificates(certificatesRes);
+        })
+    }, []);
+
     return (
         <MainLayout>
             <SC.Title>
                 Сертификаты
             </SC.Title>
-
-            <SC.Certificates>
-                {certificates.map((certificate) => (
-                    <Certificate
-                        imgUrl={certificate.url}
-                        description={certificate.description}
-                        alt={certificate.alt}
-                    />
-                ))}
-            </SC.Certificates>
+            {!certificates && (
+                <Loader />
+            )}
+            {certificates && (
+                <SC.Certificates>
+                    {certificates.map((certificate) => (
+                        <Certificate
+                            imgUrl={certificate.photo_url}
+                            description={certificate.name}
+                            alt={certificate.name}
+                        />
+                    ))}
+                </SC.Certificates>
+            )}
         </MainLayout>
     );
 };

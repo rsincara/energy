@@ -1,17 +1,16 @@
 import React from 'react';
 
-import culturePlaceholder from '../../static/culture-placeholder.png';
-
 import * as SC from './styles';
 
-const CultureItem = () => {
+const CultureItem = ({ event }) => {
+
   return (
       <SC.CultureItem>
-        <img src={culturePlaceholder} alt="culturePlaceholder" />
+        <img style={{objectFit: 'cover'}} src={event['photo_url']} alt="culturePlaceholder" />
 
         <SC.Info>
-          26 сентрября 2021 года <br />
-          Мы с сотрудниками поехали на рыбалку, чтобы отпраздновать крупное строительство и поднять боевой дух
+          {new Date(event.date * 1000).toLocaleDateString()} <br />
+          {event.description}
         </SC.Info>
       </SC.CultureItem>
   );

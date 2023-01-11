@@ -26,7 +26,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  object-fit: none;
+  object-fit: cover;
 `;
 
 export const Link = styled(NavLink)`
