@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import MainLayout from "../../ui/Layouts/MainLayout";
 import Slider from "../../ui/Slider";
@@ -6,6 +6,9 @@ import Slider from "../../ui/Slider";
 import objectPlaceholder from "../../static/object-placeholder.png";
 
 import * as SC from './styles';
+import {useParams} from "react-router-dom";
+import {fetchApi} from "../../services/fetch";
+import Loader from "../../ui/Loader";
 
 const settings = {
   dots: false,
@@ -16,64 +19,76 @@ const settings = {
   height: '550px',
 };
 
-const imagesCount = 2;
-
 const Objects = () => {
 
-    const [currentPage, setCurrentPage] = useState(1);
+  const { id } = useParams();
 
-    return (
-        <MainLayout>
-            <SC.Title>
-              Реконструкция электроснабжения СНТ «Любитель 1»
-            </SC.Title>
+  const [currentPage, setCurrentPage] = useState(1);
 
-          <SC.ContentWrapper>
-            <SC.ObjectWrapper>
-              <SC.Object>
-                <SC.SliderWrapper>
-                  <Slider options={{
-                    ...settings,
-                    afterChange: (index) => setCurrentPage(index + 1)
-                  }}>
-                    <img src={objectPlaceholder} alt="object placeholder" />
-                    <img src={objectPlaceholder} alt="object placeholder" />
-                  </Slider>
-                </SC.SliderWrapper>
-                <SC.PageIngo>
-                  {`${currentPage}/${imagesCount}`}
-                </SC.PageIngo>
-                <SC.Divider />
-              </SC.Object>
-            </SC.ObjectWrapper>
+  const [object, setObject] = useState(null);
 
-            <SC.Info>
-              <SC.TextInfo marginBottom={8}>
-                Заказчик
-              </SC.TextInfo>
+  useEffect(() => {
+    fetchApi(`constructions/${id}`).then((constructionRes) => {
+      setObject(constructionRes);
+    })
+  }, []);
 
-              <SC.TextInfo marginBottom={140}>
-                ООО “Урал-Заказ”
-              </SC.TextInfo>
 
-              <SC.TextInfo marginBottom={32}>
-                Перечень выполненных работ
-              </SC.TextInfo>
-              <SC.TextInfoList>
-                <SC.TextInfoListItem>
-                  монтаж реклоузера и ПКУ
-                </SC.TextInfoListItem>
-                <SC.TextInfoListItem>
-                  строительство ТП
-                </SC.TextInfoListItem>
-                <SC.TextInfoListItem>
-                  монтаж кабельной линии
-                </SC.TextInfoListItem>
-              </SC.TextInfoList>
-            </SC.Info>
-          </SC.ContentWrapper>
-        </MainLayout>
-    );
+  return (
+      <MainLayout>
+        {!object && (
+            <Loader />
+        )}
+        {object && (
+            <>
+              <SC.Title>
+                {object.name}
+              </SC.Title>
+              <SC.ContentWrapper>
+                <SC.ObjectWrapper>
+                  <SC.Object>
+                    <SC.SliderWrapper>
+                      <Slider options={{
+                        ...settings,
+                        afterChange: (index) => setCurrentPage(index + 1)
+                      }}>
+                        {object['image_urls'].map((img) => (
+                            <img src={img} alt="object"/>
+                        ))}
+                      </Slider>
+                    </SC.SliderWrapper>
+                    <SC.PageIngo>
+                      {`${currentPage}/${object['image_urls'].length}`}
+                    </SC.PageIngo>
+                    <SC.Divider/>
+                  </SC.Object>
+                </SC.ObjectWrapper>
+
+                <SC.Info>
+                  <SC.TextInfo marginBottom={8}>
+                    Заказчик
+                  </SC.TextInfo>
+
+                  <SC.TextInfo marginBottom={140}>
+                    {object.payer}
+                  </SC.TextInfo>
+
+                  <SC.TextInfo marginBottom={32}>
+                    Перечень выполненных работ
+                  </SC.TextInfo>
+                  <SC.TextInfoList>
+                    {object['works_done'].map((item) => (
+                        <SC.TextInfoListItem>
+                          {item}
+                        </SC.TextInfoListItem>
+                    ))}
+                  </SC.TextInfoList>
+                </SC.Info>
+              </SC.ContentWrapper>
+            </>
+        )}
+      </MainLayout>
+  );
 };
 
 export default Objects;

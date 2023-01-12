@@ -12,10 +12,12 @@ export const Title = styled.h2`
 export const ContentWrapper = styled.div`
   display: flex;
 
-  margin: 0 227px 73px;
+  margin: 0 100px 73px;
 `;
 
 export const ObjectWrapper = styled.div`
+  flex-shrink: 0;
+  
   width: 783px;
   
   margin-right: 160px;

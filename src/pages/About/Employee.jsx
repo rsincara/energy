@@ -14,10 +14,10 @@ const Employee = ({ employee }) => {
           {employee['full_name']}
         </SC.EmployeeName>
         <SC.EmployeePosition>
-          Главный инженер
+          {employee.speciality}
         </SC.EmployeePosition>
         <SC.EmployeeDescription>
-          {employee.speciality}
+          {employee.description}
         </SC.EmployeeDescription>
       </SC.Employee>
   );

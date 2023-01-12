@@ -20,19 +20,15 @@ const Object = ({ object }) => {
       <SC.ObjectWrapper>
         <SC.Object>
           <SC.SliderWrapper>
-            {/*<Slider options={settings}>*/}
-            {/*  <SC.ImageWrapper>*/}
-            {/*    <SC.Image src={objectPlaceholder} alt="object placeholder" />*/}
-            {/*  </SC.ImageWrapper>*/}
-            {/*  <SC.ImageWrapper>*/}
-            {/*    <SC.Image src={objectPlaceholder} alt="object placeholder" />*/}
-            {/*  </SC.ImageWrapper>*/}
-            {/*</Slider>*/}
-              <SC.ImageWrapper>
-                <SC.Image src={object['image_url']} alt="object placeholder" />
-              </SC.ImageWrapper>
+            <Slider options={settings}>
+              {object['image_urls'].map((url) => (
+                  <SC.ImageWrapper>
+                    <SC.Image src={url} alt="object" />
+                  </SC.ImageWrapper>
+              ))}
+            </Slider>
           </SC.SliderWrapper>
-          <SC.Link to={RoutesPath.object.replace(':id', '1')}>
+          <SC.Link to={RoutesPath.object.replace(':id', object.id)}>
             {object.name}
           </SC.Link>
           <SC.City>

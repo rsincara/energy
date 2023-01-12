@@ -38,6 +38,7 @@ export const Link = styled(NavLink)`
   height: 100px;
   
   margin-bottom: 13px;
+  padding: 0 8px;
   
   background: #DDDDDD;
   

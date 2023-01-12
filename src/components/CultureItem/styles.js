@@ -16,6 +16,8 @@ export const Info = styled.div`
   left: 0;
   right: 0;
   
+  background: rgba(0,0,0,.5);
+  
   font-size: 18px;
   text-align: center;
   color: #ffffff;

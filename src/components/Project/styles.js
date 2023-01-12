@@ -1,13 +1,20 @@
 import styled from 'styled-components';
+import {NavLink} from "react-router-dom";
 
-export const Project = styled.div`
+export const Project = styled(NavLink)`
+  display: block;
+  
   max-width: 350px;
+  
+  text-decoration: none;
 `;
 
 export const PhotoWrapper = styled.div`
   width: 350px;
-  height: 380px;
+  height: 225px;
 
+  overflow: hidden;
+  
   margin-bottom: 45px;
 `;
 

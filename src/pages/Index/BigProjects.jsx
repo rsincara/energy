@@ -1,59 +1,45 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import projectPlaceholder from '../../static/project-placeholder.png';
 
 import * as SC from './styles';
 import Project from "../../components/Project";
 import {RoutesPath} from "../../constants/routesPath";
-
-const projects = [
-    {
-        title: 'Газпром Арена',
-        description: 'Мы сделали самую красивую арену в Европе. Это открытие стало для нас прорывной точкой для разивтия на следующие десятилетия. Мы очень рады данному еву.',
-        url: projectPlaceholder,
-    },
-    {
-        title: 'Газпром Арена',
-        description: 'Мы сделали самую красивую арену в Европе. Это открытие стало для нас прорывной точкой для разивтия на следующие десятилетия. Мы очень рады данному еву.',
-        url: projectPlaceholder,
-    },
-    {
-        title: 'Газпром Арена',
-        description: 'Мы сделали самую красивую арену в Европе. Это открытие стало для нас прорывной точкой для разивтия на следующие десятилетия. Мы очень рады данному еву.',
-        url: projectPlaceholder,
-    },
-    {
-        title: 'Газпром Арена',
-        description: 'Мы сделали самую красивую арену в Европе. Это открытие стало для нас прорывной точкой для разивтия на следующие десятилетия. Мы очень рады данному еву.',
-        url: projectPlaceholder,
-    },
-];
+import {fetchApi} from "../../services/fetch";
+import Loader from "../../ui/Loader";
 
 const BigProjects = () => {
+    const [objects, setObjects] = useState(null);
+
+    useEffect(() => {
+        fetchApi('constructions').then((objectsRes) => {
+            setObjects(objectsRes);
+        })
+    }, []);
+
     return (
         <SC.Section marginBottom={85}>
             <SC.SectionTitle>
                 Наши самые большие проекты
             </SC.SectionTitle>
+            {!objects && (
+                <Loader />
+            )}
+            {objects && (
+                <SC.ProjectsContent>
+                    <SC.ProjectsWrapper>
+                        {objects.splice(0,4).map((object) => (
+                            <SC.ProjectWrapper>
+                                <Project object={object} />
+                            </SC.ProjectWrapper>
+                        ))}
+                    </SC.ProjectsWrapper>
 
-            <SC.ProjectsContent>
-                <SC.ProjectsWrapper>
-                    {projects.map((project) => (
-                        <SC.ProjectWrapper>
-                            <Project
-                                title={project.title}
-                                description={project.description}
-                                alt="project"
-                                imgUrl={project.url}
-                            />
-                        </SC.ProjectWrapper>
-                    ))}
-                </SC.ProjectsWrapper>
-
-                <SC.ProjectMore to={RoutesPath.objects}>
-                    Смотреть еще ->
-                </SC.ProjectMore>
-            </SC.ProjectsContent>
+                    <SC.ProjectMore to={RoutesPath.objects}>
+                        Смотреть еще ->
+                    </SC.ProjectMore>
+                </SC.ProjectsContent>
+            )}
         </SC.Section>
     );
 };

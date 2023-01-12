@@ -1,27 +1,23 @@
 import React from 'react';
 
 import * as SC from './styles';
+import {RoutesPath} from "../../constants/routesPath";
 
-const Project = ({
-    title,
-    description,
-    imgUrl,
-    alt,
-}) => {
+const Project = ({ object }) => {
     return (
-        <SC.Project>
+        <SC.Project to={RoutesPath.object.replace(':id', object.id)}>
             <SC.PhotoWrapper>
-                <img src={imgUrl} alt={alt} />
+                <img src={object['image_urls'][0]} alt={object.name} />
             </SC.PhotoWrapper>
 
             <SC.Divider />
 
             <SC.Title>
-                {title}
+                {object.name}
             </SC.Title>
 
             <SC.Description>
-                {description}
+                {object.description}
             </SC.Description>
         </SC.Project>
     );
