@@ -67,7 +67,7 @@ const Contacts = () => {
               </SC.Text>
             </SC.LeftBlock>
             <SC.RightBlock>
-              <img src={map} alt="map" />
+              <img src="https://korona-severa.ru/wp-content/uploads/4/5/9/45998c9f4976c74c5fbb44b1d9de3eaa.jpeg" alt="map" />
             </SC.RightBlock>
           </SC.Info>
         </MainLayout>

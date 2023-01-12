@@ -55,7 +55,9 @@ export const City = styled.div`
   justify-content: center;
 
   width: 113px;
-  height: 43px;
+  min-height: 43px;
+  
+  padding: 0 8px;
 
   background: #F3F3F3;
   

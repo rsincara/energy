@@ -4,8 +4,7 @@ import * as SC from './styles';
 import Button from "../../ui/Button";
 import RespondModal from "../RespondModal";
 
-const Vacancy = () => {
-
+const Vacancy = ({ vacancy }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCloseModal = () => {
@@ -23,11 +22,11 @@ const Vacancy = () => {
           <SC.BodyWrapper/>
           <SC.Info>
             <SC.Title>
-              Монтажник
+              {vacancy.title}
             </SC.Title>
 
             <SC.Salary>
-              120 тысяч рублей
+              {vacancy.salary}
             </SC.Salary>
 
             <SC.Offer>
@@ -37,28 +36,20 @@ const Vacancy = () => {
               <SC.FlexWrapper>
                 <div>
                   <SC.List>
-                    <SC.ListItem>
-                      Предложение 1
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Предложение 2
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Предложение 3
-                    </SC.ListItem>
+                    {vacancy.offer.slice(0,3).map((offerItem) => (
+                        <SC.ListItem>
+                          {offerItem}
+                        </SC.ListItem>
+                    ))}
                   </SC.List>
                 </div>
                 <div>
                   <SC.List>
-                    <SC.ListItem>
-                      Предложение 4
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Предложение 5
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Предложение 6
-                    </SC.ListItem>
+                    {vacancy.offer.slice(3,6).map((offerItem) => (
+                        <SC.ListItem>
+                          {offerItem}
+                        </SC.ListItem>
+                    ))}
                   </SC.List>
                 </div>
               </SC.FlexWrapper>
@@ -71,28 +62,20 @@ const Vacancy = () => {
               <SC.FlexWrapper>
                 <div>
                   <SC.List>
-                    <SC.ListItem>
-                      Требование 1
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Требование 2
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Требование 3
-                    </SC.ListItem>
+                    {vacancy.requirements.slice(0,3).map((reqItem) => (
+                        <SC.ListItem>
+                          {reqItem}
+                        </SC.ListItem>
+                    ))}
                   </SC.List>
                 </div>
                 <div>
                   <SC.List>
-                    <SC.ListItem>
-                      Требование 4
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Требование 5
-                    </SC.ListItem>
-                    <SC.ListItem>
-                      Требование 6
-                    </SC.ListItem>
+                    {vacancy.requirements.slice(3,6).map((reqItem) => (
+                        <SC.ListItem>
+                          {reqItem}
+                        </SC.ListItem>
+                    ))}
                   </SC.List>
                 </div>
               </SC.FlexWrapper>

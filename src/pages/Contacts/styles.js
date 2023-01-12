@@ -82,9 +82,6 @@ export const ContactUsButton = styled.button`
 `;
 
 export const RightBlock = styled.div`
-  width: 967px;
-  height: 803px;
-  
-  overflow: hidden;
+  max-width: 988px;
 `;
 
